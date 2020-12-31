@@ -41,7 +41,7 @@ static int parse_arg(int *acp, char ***avp)
 
 		for (; *ta; ++ta) {
 			if (*ta == 'l') {
-				ret += END_NL;
+				ret |= END_NL;
 			} else {
 				fprintf(stderr,
 					"bad argument, supported: -l\n");

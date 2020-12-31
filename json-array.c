@@ -30,6 +30,7 @@
 int main(int ac, char **av)
 {
 	int i = 0;
+	int flag = 0;
 
 	flag = parse_arg(&ac, &av);
 
