@@ -23,12 +23,15 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "json-helper.h"
 
 int main(int ac, char **av)
 {
 	int i = 0;
+
+	flag = parse_arg(&ac, &av);
 
 	printf("[");
 
@@ -38,6 +41,8 @@ int main(int ac, char **av)
 			printf(",");
 	}
 	printf("]");
+	if (flag == END_NL)
+		printf("\n");
 	fflush(stdout);
 	return 0;
 }

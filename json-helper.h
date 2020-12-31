@@ -23,7 +23,38 @@
 #ifndef JSON_HELPER_H_
 #define JSON_HELPER_H_
 
-void print_val(const char *v)
+#define END_NL 1
+
+
+static int parse_arg(int *acp, char ***avp)
+{
+	char **av = *avp;
+	char *a;
+	int ret = 0;
+
+	if (*acp < 2)
+		return 0;
+	a = av[1];
+
+	if (a[0] == '-') {
+		const char *ta = &a[1];
+
+		for (; *ta; ++ta) {
+			if (*ta == 'l') {
+				ret += END_NL;
+			} else {
+				fprintf(stderr,
+					"bad argument, supported: -l\n");
+				exit(1);
+			}
+		}
+		*acp = *acp - 1;
+		*avp = *avp + 1;
+	}
+	return ret;
+}
+
+static void print_val(const char *v)
 {
 	int is_num = 1;
 	const char *c = v;
