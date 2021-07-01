@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=json-array
+Exec=json-array
+Comment=grep into like, and format print
+Categories=Development;
+Terminal=true
+Icon=appimage-logo
